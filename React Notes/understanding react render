@@ -1,0 +1,67 @@
+This code snippet demonstrates the basics of rendering a React element using the `React` and `ReactDOM` libraries without JSX. Here's a breakdown of how it works:
+
+### 1. `React.createElement`
+
+```javascript
+const heading = React.createElement("h1", {}, "Hello World from React!");
+```
+
+- **`React.createElement`**: This method creates a React element, which is an object representing a DOM node or a component. In this case, it's creating an `h1` element.
+
+- **Parameters**:
+  1. **Type**: The first argument `"h1"` specifies the type of element to create, which in this case is an HTML `<h1>` element.
+  2. **Props**: The second argument `{}` is an object representing the props to pass to the element. In this case, it's an empty object `{}`, meaning no attributes or event handlers are provided.
+  3. **Children**: The third argument `"Hello World from React!"` is the content or children of the element, which in this case is a string that will be displayed as the text inside the `<h1>` tag.
+
+- **Result**: This creates a React element that looks like:
+
+  ```javascript
+  {
+    type: "h1",
+    props: {
+      children: "Hello World from React!"
+    }
+  }
+  ```
+
+### 2. `ReactDOM.createRoot`
+
+```javascript
+const root = ReactDOM.createRoot(document.getElementById("root"));
+```
+
+- **`ReactDOM.createRoot`**: This method is used to create a root DOM node where your React application will be rendered. It’s a part of the new Concurrent Mode in React, providing better performance and smoother rendering.
+
+- **Parameter**:
+  - `document.getElementById("root")`: This selects the DOM element with the ID `"root"`, which is where your React application will be inserted. Typically, this is a `<div id="root"></div>` in your `index.html` file.
+
+- **Result**: This returns a root object with a `render` method that you can use to render your React elements.
+
+### 3. `root.render`
+
+```javascript
+root.render(heading);
+```
+
+- **`root.render`**: This method renders the React element (`heading` in this case) into the specified root DOM node.
+
+- **Parameter**:
+  - `heading`: The React element created by `React.createElement` is passed here to be rendered.
+
+### Putting It All Together:
+
+- **Creating the Element**: `React.createElement("h1", {}, "Hello World from React!")` creates an `<h1>` element with the text "Hello World from React!".
+
+- **Getting the Root Node**: `ReactDOM.createRoot(document.getElementById("root"))` gets the root DOM node (typically a `div` with an ID of `"root"` in your HTML).
+
+- **Rendering the Element**: `root.render(heading);` renders the created `<h1>` element inside the root DOM node, displaying "Hello World from React!" on the webpage.
+
+### Result in the Browser:
+
+When this code is executed, the result in the browser will be:
+
+```html
+<h1>Hello World from React!</h1>
+```
+
+This will be inside the element with the ID `"root"` in your HTML, making "Hello World from React!" appear on the webpage as an `h1` heading.
