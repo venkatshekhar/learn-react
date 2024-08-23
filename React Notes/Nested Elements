@@ -1,0 +1,91 @@
+This code snippet demonstrates how to create a nested structure of React elements and render them into the DOM without using JSX. Here's a step-by-step breakdown:
+
+### 1. Creating the Nested Elements
+
+```javascript
+const parent = React.createElement(
+  "div",
+  { id: "parent" },
+  React.createElement(
+    "div",
+    { id: "child" },
+    React.createElement(
+      "h1",
+      { id: "heading", xyz: "abc" },
+      "Hello World from React!"
+    )
+  )
+);
+```
+
+- **`React.createElement("div", { id: "parent" }, ...)`**:
+  - This creates a `div` element with the attribute `id="parent"`.
+  - The third argument is where the children of this `div` are defined.
+
+- **Nested `React.createElement` calls**:
+  - Inside the `parent` `div`, another `div` element is created:
+    ```javascript
+    React.createElement(
+      "div",
+      { id: "child" },
+      ...
+    )
+    ```
+    - This creates a `div` element with the attribute `id="child"`.
+    - The third argument is where the children of this `div` are defined.
+  
+  - Inside the `child` `div`, an `h1` element is created:
+    ```javascript
+    React.createElement(
+      "h1",
+      { id: "heading", xyz: "abc" },
+      "Hello World from React!"
+    )
+    ```
+    - This creates an `h1` element with the attributes `id="heading"` and a custom attribute `xyz="abc"`.
+    - The third argument `"Hello World from React!"` is the text content of the `h1` element.
+
+### 2. Structure of the Created Elements
+
+The `parent` element is a `div` that contains another `div` (`child`), which in turn contains an `h1` element. Here's the structure:
+
+- `parent` (`div` with `id="parent"`)
+  - `child` (`div` with `id="child"`)
+    - `h1` (`h1` with `id="heading"` and `xyz="abc"`)
+      - Text: `"Hello World from React!"`
+
+### 3. Creating the Root
+
+```javascript
+const root = ReactDOM.createRoot(document.getElementById("root"));
+```
+
+- This line selects the DOM element with the ID `"root"` and creates a React root using `ReactDOM.createRoot`. This root will be used to render the React elements into the actual DOM.
+
+### 4. Rendering the Parent Element
+
+```javascript
+root.render(parent);
+```
+
+- The `parent` element (which contains the entire nested structure) is rendered into the root DOM node (`document.getElementById("root")`).
+
+### Result in the Browser
+
+When this code is executed, the resulting HTML structure in the browser will be:
+
+```html
+<div id="parent">
+  <div id="child">
+    <h1 id="heading" xyz="abc">Hello World from React!</h1>
+  </div>
+</div>
+```
+
+### Explanation:
+
+- **`parent` `div`**: The outermost `div` with `id="parent"` wraps the entire structure.
+- **`child` `div`**: Nested inside `parent`, this `div` with `id="child"` wraps the `h1` element.
+- **`h1` element**: The innermost element with `id="heading"` and a custom attribute `xyz="abc"` displays the text "Hello World from React!".
+
+This structure is rendered inside the element with the ID `"root"` in your HTML file.
