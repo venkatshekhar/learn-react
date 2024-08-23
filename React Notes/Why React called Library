@@ -1,0 +1,24 @@
+React is called a "library" rather than a "framework" because of its focused scope and the flexibility it offers to developers in building user interfaces. Here’s why:
+
+### 1. **Focused Purpose**
+   - **Library**: React primarily focuses on building user interfaces, especially the view layer of web applications. It provides the tools necessary to create and manage components, handle state, and efficiently render UIs. However, it doesn't prescribe how to handle other aspects of an application, such as routing, data fetching, or state management beyond the component level.
+   - **Framework**: In contrast, a framework usually provides a more comprehensive solution, including not only the view layer but also guidelines and built-in features for things like data management, routing, form handling, and more. A framework often dictates a specific way of organizing and structuring your application.
+
+### 2. **Flexibility**
+   - **Library**: React is designed to be flexible and modular. Developers can integrate it into existing projects or use it in combination with other libraries of their choice to handle things like routing (`React Router`), state management (`Redux`, `MobX`), and form handling. React doesn’t enforce a particular structure on your application, giving developers the freedom to choose the best tools for their specific needs.
+   - **Framework**: A framework usually enforces a specific way of building an application, often with a predefined structure and a set of conventions. While this can speed up development and provide consistency, it can also be restrictive if you want to deviate from the framework's "opinionated" way of doing things.
+
+### 3. **Integration**
+   - **Library**: React can be used as a part of a larger application alongside other libraries or even within a framework. It doesn’t require you to build an entire application using React; you can integrate React components into parts of an existing application.
+   - **Framework**: A framework is often designed to be the foundation of an application. When you choose a framework, you’re typically committing to using its ecosystem and structure throughout your project.
+
+### 4. **Size and Complexity**
+   - **Library**: React is relatively small and lightweight. It provides the core functionality needed to build UIs but leaves other aspects up to the developer.
+   - **Framework**: Frameworks are usually larger and more complex because they offer more built-in features and cover a wider range of use cases.
+
+### 5. **Example Comparison**
+   - **React (Library)**: You can use React with a variety of other tools to build a web application. For example, you might use React for the UI, `React Router` for routing, and `Redux` for state management, each of which is a separate library that you can choose to include or not.
+   - **Angular (Framework)**: Angular, on the other hand, is a full-fledged framework. It includes built-in features for routing, state management, forms, HTTP requests, and more. Angular prescribes a specific way to build your application, with a strong emphasis on the Model-View-Controller (MVC) pattern.
+
+### Summary
+React is called a library because it provides a focused, flexible, and modular toolset for building UIs, allowing developers to choose how they want to handle other aspects of their application. It doesn’t impose a rigid structure or a comprehensive set of tools like a framework would, making it more adaptable to various use cases and project needs.
